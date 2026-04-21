@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ד״ר מאיה שפיגל | המדריך המלא לשחרור טראומת לידה</title>
+  <meta name="description" content="המדריך המלא שעזר למאות נשים להבין למה הן מרגישות מנותקות או בחרדה וחשף את הדרך המדעית לפתוח את הלב מחדש.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       RESET & VARIABLES
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --cream: #FBF8F3;
+      --cream-warm: #F5F0E8;
+      --white: #FFFFFF;
+
+      --gold: #C8A87D;
+      --gold-light: #E0CFA8;
+      --gold-dark: #A68B5B;
+      --gold-glow: rgba(200, 168, 125, 0.25);
+
+      --navy: #1B2A4A;
+      --navy-light: #2D3E5E;
+      --navy-soft: #3A4F6F;
+
+      --rose: #B8867B;
+      --rose-light: #D4A99F;
+      --rose-dark: #9A6B60;
+      --rose-glow: rgba(184, 134, 123, 0.2);
+
+      --text-dark: #1A1A2E;
+      --text-medium: #4A4A5A;
+      --text-light: #7A7A8A;
+      --text-on-dark: #F0EDE8;
+
+      --shadow-soft: 0 4px 24px rgba(27, 42, 74, 0.06);
+      --shadow-medium: 0 8px 40px rgba(27, 42, 74, 0.1);
+      --shadow-heavy: 0 16px 56px rgba(27, 42, 74, 0.14);
+      --shadow-gold: 0 4px 24px rgba(200, 168, 125, 0.3);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-xl: 32px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Assistant', 'Heebo', Arial, sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ============================================
+       ANIMATIONS
+       ============================================ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { box-shadow: 0 4px 24px rgba(184, 134, 123, 0.3); }
+      50% { box-shadow: 0 8px 40px rgba(184, 134, 123, 0.5); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 72px 0;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      section { padding: 100px 0; }
+    }
+
+    /* ============================================
+       DECORATIVE
+       ============================================ */
+    .section-divider {
+      height: 1px;
+      max-width: 120px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    /* ============================================
+       HERO — STICKY PARALLAX WITH CROPPED IMAGE
+       ============================================ */
+    .hero-wrapper {
+      position: relative;
+      width: 100%;
+      min-height: 160vh;  /* total scroll space — creates parallax effect */
+    }
+
+    .hero-image-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      z-index: 1;
+      background: var(--navy);
+    }
+
+    .hero-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;  /* show upper-middle — woman, baby, doorway */
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg,
+          rgba(27, 42, 74, 0.30) 0%,
+          rgba(27, 42, 74, 0.40) 40%,
+          rgba(27, 42, 74, 0.55) 70%,
+          rgba(27, 42, 74, 0.75) 100%
+        );
+      z-index: 1;
+    }
+
+    .hero-text-area {
+      position: relative;
+      z-index: 2;
+      margin-top: -100vh;  /* pull up to overlay on sticky image */
+      min-height: 160vh;   /* match wrapper for smooth scroll */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 24px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-preheadline {
+      font-size: 1.3rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: 0.3px;
+      line-height: 1.7;
+      max-width: 600px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    @media (min-width: 768px) {
+      .hero-preheadline {
+        font-size: 1.5rem;
+      }
+    }
+
+    .hero-headline {
+      font-family: 'Heebo', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1.35;
+      color: var(--white);
+      margin-bottom: 24px;
+      animation: fadeInUp 0.9s ease-out 0.2s both;
+    }
+
+    .hero-headline .highlight {
+      color: var(--gold);
+    }
+
+    .hero-subheadline {
+      font-size: 1.125rem;
+      color: var(--text-on-dark);
+      line-height: 1.9;
+      margin-bottom: 16px;
+      animation: fadeInUp 0.9s ease-out 0.35s both;
+      opacity: 0.92;
+      max-width: 620px;
+    }
+
+    .hero-subheadline strong {
+      color: var(--white);
+    }
+
+    .hero-guide-description {
+      font-size: 1.0625rem;
+      color: var(--text-on-dark);
+      line-height: 1.75;
+      margin-bottom: 20px;
+      padding: 18px 22px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-md);
+      border-right: 3px solid var(--gold);
+      animation: fadeInUp 0.9s ease-out 0.5s both;
+      max-width: 620px;
+      text-align: right;
+    }
+
+    .hero-scroll-hint {
+      margin-top: 24px;
+      animation: fadeIn 1.5s ease-out 1s both;
+      color: var(--gold-light);
+      font-size: 0.875rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-scroll-hint .arrow {
+      display: inline-block;
+      animation: bounceDown 1.5s ease-in-out infinite;
+      font-size: 1.25rem;
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    @media (min-width: 768px) {
+      .hero-headline { font-size: 2.8rem; }
+      .hero-subheadline { font-size: 1.3rem; }
+    }
+
+    /* ============================================
+       FORM SECTION (below hero, separate section)
+       ============================================ */
+    .form-section {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 40%, var(--cream) 100%);
+      padding: 60px 24px 80px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* ============================================
+       FORM STYLES
+       ============================================ */
+    .form-container {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-heavy);
+      border: 1px solid rgba(200, 168, 125, 0.2);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--rose), var(--gold));
+    }
+
+    .form-container h3 {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Rav Messer form embed styling */
+    .form-container .rav-messer-embed {
+      min-height: 200px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-medium);
+      margin-bottom: 6px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 15px 18px;
+      border: 2px solid #E8E4DE;
+      border-radius: var(--radius-sm);
+      font-family: 'Assistant', sans-serif;
+      font-size: 1rem;
+      color: var(--text-dark);
+      background: var(--cream);
+      transition: all 0.3s ease;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-light);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px var(--gold-glow);
+      background: var(--white);
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    .success-message.visible {
+      display: block;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 2rem;
+      color: var(--white);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .success-message h3 {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .success-message p {
+      color: var(--text-medium);
+      font-size: 1rem;
+    }
+
+    .form-privacy {
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--text-light);
+      margin-top: 14px;
+      line-height: 1.6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .form-privacy svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .cta-button {
+      display: block;
+      width: 100%;
+      padding: 18px 28px;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+      color: white;
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.1875rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.35s ease;
+      text-align: center;
+      letter-spacing: 0.3px;
+      margin-top: 8px;
+      animation: gentlePulse 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(184, 134, 123, 0.45);
+    }
+
+    .cta-button:hover::after {
+      left: 100%;
+    }
+
+    .cta-button-secondary {
+      display: inline-block;
+      padding: 18px 48px;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+      color: white;
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.35s ease;
+      text-decoration: none;
+      animation: gentlePulse 3s ease-in-out infinite;
+    }
+
+    .cta-button-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(184, 134, 123, 0.45);
+    }
+
+    /* ============================================
+       PORTRAIT INTRO SECTION (between trust bar and pain)
+       ============================================ */
+    .portrait-intro {
+      padding: 56px 0;
+      background: var(--cream);
+    }
+
+    .portrait-intro-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .portrait-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid var(--gold);
+      box-shadow: var(--shadow-gold), 0 0 0 8px rgba(200, 168, 125, 0.1);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .portrait-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait-intro-text {
+      font-size: 1.125rem;
+      color: var(--text-medium);
+      line-height: 1.8;
+      max-width: 500px;
+    }
+
+    .portrait-intro-text strong {
+      color: var(--navy);
+    }
+
+    @media (min-width: 768px) {
+      .portrait-intro-inner {
+        flex-direction: row;
+        text-align: right;
+        gap: 28px;
+      }
+      .portrait-circle {
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    /* ============================================
+       TRUST BAR
+       ============================================ */
+    .trust-bar {
+      text-align: center;
+      padding: 20px 0;
+      background: var(--cream-warm);
+      border-top: 1px solid rgba(200, 168, 125, 0.15);
+      border-bottom: 1px solid rgba(200, 168, 125, 0.15);
+      position: relative;
+      z-index: 3;
+    }
+
+    .trust-bar p {
+      font-size: 0.8125rem;
+      color: var(--text-light);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .trust-bar span {
+      color: var(--gold-dark);
+    }
+
+    /* ============================================
+       PAIN SECTION
+       ============================================ */
+    .pain-section {
+      background: var(--white);
+      position: relative;
+    }
+
+    .pain-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--rose-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .pain-section .section-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.625rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+
+    .pain-section .section-title .highlight {
+      color: var(--rose);
+    }
+
+    .pain-intro {
+      font-size: 1.0625rem;
+      color: var(--text-medium);
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+
+    .pain-item {
+      display: flex;
+      gap: 16px;
+      padding: 22px;
+      margin-bottom: 14px;
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      align-items: flex-start;
+      transition: all 0.35s ease;
+      border: 1px solid transparent;
+    }
+
+    .pain-item:hover {
+      border-color: var(--rose-light);
+      box-shadow: var(--shadow-soft);
+      transform: translateX(-4px);
+    }
+
+    .pain-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--rose-light), var(--rose));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: 0 4px 12px var(--rose-glow);
+    }
+
+    .pain-text {
+      font-size: 1rem;
+      color: var(--text-medium);
+      line-height: 1.75;
+    }
+
+    .pain-text strong {
+      color: var(--navy);
+    }
+
+    .pain-closing {
+      margin-top: 36px;
+      padding: 24px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      border-radius: var(--radius-md);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .pain-section .section-title { font-size: 2rem; }
+    }
+
+    /* ============================================
+       GUIDE CONTENT SECTION
+       ============================================ */
+    .guide-section {
+      background: var(--cream);
+      position: relative;
+    }
+
+    .guide-section .section-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.625rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .guide-section .section-subtitle {
+      font-size: 1.0625rem;
+      color: var(--text-medium);
+      margin-bottom: 40px;
+      line-height: 1.75;
+    }
+
+    .guide-item {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 26px 24px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-soft);
+      border-right: 4px solid var(--gold);
+      transition: all 0.35s ease;
+    }
+
+    .guide-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-medium);
+      border-right-color: var(--gold-dark);
+    }
+
+    .guide-item-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .guide-item-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .guide-item-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--white);
+    }
+
+    .guide-item-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .guide-item-text {
+      font-size: 0.9375rem;
+      color: var(--text-medium);
+      line-height: 1.75;
+      padding-right: 44px;
+    }
+
+    .guide-cta-wrapper {
+      text-align: center;
+      margin-top: 44px;
+    }
+
+    @media (min-width: 768px) {
+      .guide-section .section-title { font-size: 2rem; }
+    }
+
+    /* ============================================
+       TARGET AUDIENCE SECTION
+       ============================================ */
+    .target-section {
+      background: var(--white);
+    }
+
+    .target-section .section-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.625rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 36px;
+      text-align: center;
+    }
+
+    .target-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .target-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .target-item {
+      padding: 24px 22px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--cream-warm) 100%);
+      border-radius: var(--radius-md);
+      transition: all 0.35s ease;
+      border: 1px solid transparent;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .target-item:hover {
+      border-color: var(--gold-light);
+      box-shadow: var(--shadow-gold);
+      transform: translateY(-4px);
+    }
+
+    .target-emoji {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+    }
+
+    .target-text {
+      font-size: 0.9375rem;
+      color: var(--text-medium);
+      line-height: 1.7;
+    }
+
+    .target-text strong {
+      color: var(--navy);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .target-section .section-title { font-size: 2rem; }
+    }
+
+    /* ============================================
+       AUTHORITY SECTION
+       ============================================ */
+    .authority-section {
+      background: linear-gradient(160deg, var(--cream) 0%, var(--cream-warm) 50%, var(--cream) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .authority-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .authority-main {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 40px 28px;
+      box-shadow: var(--shadow-heavy);
+      border: 1px solid rgba(200, 168, 125, 0.15);
+      text-align: center;
+    }
+
+    .authority-portrait-top {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid var(--gold);
+      box-shadow: var(--shadow-gold);
+      overflow: hidden;
+      margin: 0 auto 24px;
+    }
+
+    .authority-portrait-top img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .authority-name {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.625rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .authority-title-line {
+      font-size: 0.9375rem;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+      justify-content: center;
+    }
+
+    .credential-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: linear-gradient(135deg, var(--cream), var(--cream-warm));
+      border-radius: 24px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--navy);
+      border: 1px solid rgba(200, 168, 125, 0.3);
+    }
+
+    .credential-badge svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--gold);
+    }
+
+    .authority-text-content {
+      text-align: right;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .authority-text {
+      font-size: 1rem;
+      color: var(--text-medium);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .authority-highlight {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      margin-top: 24px;
+    }
+
+    .authority-highlight p {
+      font-size: 1.0625rem;
+      color: var(--gold-light);
+      font-weight: 600;
+      line-height: 1.75;
+      text-align: center;
+    }
+
+    .authority-reassurance {
+      margin-top: 20px;
+      padding: 20px 24px;
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      border-right: 3px solid var(--gold);
+    }
+
+    .authority-reassurance p {
+      font-size: 1rem;
+      color: var(--text-medium);
+      line-height: 1.85;
+    }
+
+    .authority-reassurance strong {
+      color: var(--navy);
+    }
+
+    /* Certificates Grid */
+    .certificates-section {
+      margin-top: 40px;
+    }
+
+    .certificates-section-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .certificates-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .certificates-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .cert-card {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(200, 168, 125, 0.25);
+      transition: all 0.35s ease;
+    }
+
+    .cert-card:hover {
+      box-shadow: var(--shadow-gold);
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .cert-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .cert-card-label {
+      padding: 10px 14px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-align: center;
+      background: var(--white);
+      border-top: 1px solid rgba(200, 168, 125, 0.15);
+    }
+
+    .cert-card-pdf {
+      width: 100%;
+      height: 380px;
+      border: none;
+      display: block;
+      background: var(--white);
+    }
+
+    .cert-card-pdf.rotate-180 {
+      transform: rotate(180deg);
+    }
+
+    @media (min-width: 640px) {
+      .cert-card-pdf {
+        height: 450px;
+      }
+    }
+
+    /* ============================================
+       FINAL CTA SECTION
+       ============================================ */
+    .final-cta-section {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy-soft) 100%);
+      text-align: center;
+      padding: 72px 0 96px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 40% 30%, rgba(200, 168, 125, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .final-cta-section .section-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.625rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .final-cta-section .form-container {
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .final-cta-section .section-title { font-size: 2rem; }
+    }
+
+    /* ============================================
+       MODAL
+       ============================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(27, 42, 74, 0.6);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 40px 30px;
+      max-width: 460px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+      animation: fadeInUp 0.4s ease-out;
+    }
+
+    .modal-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--rose), var(--gold));
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: var(--cream);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.25rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .modal-content h3 {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    /* ============================================
+       FLOATING MOBILE CTA
+       ============================================ */
+    .floating-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 20px;
+      padding-bottom: calc(14px + env(safe-area-inset-bottom));
+      background: rgba(27, 42, 74, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 -4px 30px rgba(0,0,0,0.15);
+      z-index: 900;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .floating-cta.visible {
+      transform: translateY(0);
+    }
+
+    .floating-cta button {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dark) 100%);
+      color: white;
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    @media (max-width: 767px) {
+      .floating-cta { display: block; }
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '944247124783076');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=944247124783076&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <!-- ==========================================
+       HERO — STICKY IMAGE + SCROLLING TEXT
+       ========================================== -->
+  <div class="hero-wrapper">
+    <div class="hero-image-sticky">
+      <img src="images/mother-baby-hallway.jpg" alt="אם מחזיקה תינוק" class="hero-bg-img" loading="eager">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-text-area">
+        <p class="hero-preheadline">לאימהות שמרגישות שהן עושות הכל &quot;לפי הספר&quot;, אבל הלב נשאר מכווץ ודרוך מאז חדר הלידה...</p>
+
+        <h1 class="hero-headline">
+          ד״ר מאיה שפיגל חושפת את<br>
+          <span class="highlight">הסודות מחדר הטיפולים:</span>
+        </h1>
+
+        <p class="hero-subheadline">
+          מה באמת קורה במוח שלך אחרי לידה מורכבת,<br>
+          למה <strong>&quot;לתת לזמן לעשות את שלו&quot;</strong> זו טעות,<br>
+          ואיך להשתחרר מהדריכות והאשמה ולחזור לעצמך.
+        </p>
+
+        <p class="hero-guide-description">
+          המדריך המלא שעזר למאות נשים להבין למה הן מרגישות מנותקות או בחרדה — וחשף את הדרך המדעית לפתוח את הלב מחדש.
+        </p>
+
+    </div>
+  </div>
+
+  <!-- ==========================================
+       FORM SECTION (separate, below hero)
+       ========================================== -->
+  <div class="form-section">
+    <div class="form-container" id="hero-form">
+      <h3>קבלי את המדריך ללא עלות</h3>
+      <script type='text/javascript' src='https://form2.ravpage.co.il/378f482857940bf56bd29fd5877dcb9d69DBB9E7' charset='UTF-8'></script>
+    </div>
+  </div>
+
+  <!-- Trust bar -->
+  <div class="trust-bar">
+    <p><span>18 שנות ניסיון</span> &nbsp;·&nbsp; <span>מאות מטופלות</span> &nbsp;·&nbsp; <span>EMDR & CBT</span> &nbsp;·&nbsp; <span>מרצה באקדמיה</span></p>
+  </div>
+
+  <!-- ==========================================
+       PORTRAIT INTRO (portrait higher in page)
+       ========================================== -->
+  <div class="portrait-intro reveal">
+    <div class="container">
+      <div class="portrait-intro-inner">
+        <div class="portrait-circle">
+          <img src="images/maya-portrait.jpg" alt="ד״ר מאיה שפיגל">
+        </div>
+        <p class="portrait-intro-text">
+          <strong>ד״ר מאיה שפיגל</strong> — פסיכולוגית קלינית עם 18 שנות ניסיון, מומחית לטראומה ולקשר הורה-ילד. מלווה מאות נשים בדרך חזרה לעצמן.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PAIN / PROBLEM SECTION
+       ========================================== -->
+  <section class="pain-section">
+    <div class="container">
+      <div class="section-eyebrow reveal">את מכירה את זה?</div>
+
+      <h2 class="section-title reveal reveal-delay-1">
+        הכל נראה בסדר מבחוץ,<br>
+        אבל <span class="highlight">בפנים משהו חסום?</span>
+      </h2>
+
+      <p class="pain-intro reveal reveal-delay-2">את בטח מכירה את זה:</p>
+
+      <div class="pain-item reveal reveal-delay-1">
+        <div class="pain-icon">😰</div>
+        <p class="pain-text">התינוק בוכה, ובמקום אינסטינקט של הכלה, <strong>הגוף שלך נכנס לפאניקה ולדריכות.</strong></p>
+      </div>
+
+      <div class="pain-item reveal reveal-delay-2">
+        <div class="pain-icon">🌙</div>
+        <p class="pain-text">השעות עוברות ואת מותשת, אבל <strong>את לא מצליחה לישון</strong> בגלל מחשבות חוזרות, פלאשבקים ומתח שפשוט לא מרפה.</p>
+      </div>
+
+      <div class="pain-item reveal reveal-delay-3">
+        <div class="pain-icon">🚫</div>
+        <p class="pain-text">את מנסה בכל כוחך <strong>להימנע מדברים שמזכירים לך את הלידה</strong> – בתי חולים, נשים בהריון, או אפילו שיחות על הנושא.</p>
+      </div>
+
+      <div class="pain-item reveal reveal-delay-4">
+        <div class="pain-icon">💔</div>
+        <p class="pain-text">את מרגישה <strong>אשמה או בושה</strong> על זה שאת &quot;תפעולית וטכנית&quot; ולא מתמוגגת מהאימהות כמו שציפית.</p>
+      </div>
+
+      <div class="pain-closing reveal reveal-delay-5">
+        אם הנהנת בראש — המדריך הזה נכתב בדיוק בשבילך.
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================
+       GUIDE CONTENT SECTION
+       ========================================== -->
+  <section class="guide-section">
+    <div class="container">
+      <div class="section-eyebrow reveal">מה בפנים?</div>
+
+      <h2 class="section-title reveal reveal-delay-1">מה תגלי בתוך המדריך?</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        בהדרכה קצרה, מדויקת ובגובה העיניים, אעשה לך סדר בבלאגן הרגשי ואחסוך לך חודשים של הלקאה עצמית.
+      </p>
+
+      <div class="guide-item reveal reveal-delay-1">
+        <div class="guide-item-header">
+          <div class="guide-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <h3 class="guide-item-title">הסטטיסטיקה המושתקת</h3>
+        </div>
+        <p class="guide-item-text">כ-25-30% מהנשים היולדות חוות סימפטומים פוסט טראומטיים בעקבות הלידה – ולמה את ממש לא &quot;המקרה המוזר&quot; למרות שאף אחד לא מכין אותנו לזה.</p>
+      </div>
+
+      <div class="guide-item reveal reveal-delay-2">
+        <div class="guide-item-header">
+          <div class="guide-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <h3 class="guide-item-title">מנגנון ההישרדות של המוח</h3>
+        </div>
+        <p class="guide-item-text">למה הזיכרון מהלידה &quot;מרגיש כמו עכשיו&quot;, ואיך זה שמבחינה ביולוגית המוח לא מאפשר לך להתאהב בתינוק כשאת במצב סכנה.</p>
+      </div>
+
+      <div class="guide-item reveal reveal-delay-3">
+        <div class="guide-item-header">
+          <div class="guide-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <h3 class="guide-item-title">4 הסימנים השקטים</h3>
+        </div>
+        <p class="guide-item-text">איך לדעת אם הלידה עדיין &quot;פועלת&quot; בגוף שלך ומפעילה אותך גם חודשים אחרי (אפילו אם הצוות הרפואי אמר ש&quot;הכל עבר רגיל&quot;).</p>
+      </div>
+
+      <div class="guide-item reveal reveal-delay-4">
+        <div class="guide-item-header">
+          <div class="guide-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <h3 class="guide-item-title">הפתרון המדעי והקליני</h3>
+        </div>
+        <p class="guide-item-text">מה קבע ארגון הבריאות העולמי (WHO) כטיפול היעיל ביותר לשחרור טראומת לידה (רמז: להגיד לעצמך &quot;תנשמי עמוק, העיקר שהתינוק בריא&quot; זה לא אחד מהם).</p>
+      </div>
+
+      <div class="guide-cta-wrapper reveal">
+        <button class="cta-button-secondary" onclick="openModal()">
+          אני רוצה לקרוא את המדריך בחינם! &rsaquo;&rsaquo;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       TARGET AUDIENCE SECTION
+       ========================================== -->
+  <section class="target-section">
+    <div class="container">
+      <div class="section-eyebrow reveal" style="justify-content: center; width: 100%; display: flex;">בשבילך</div>
+      <h2 class="section-title reveal reveal-delay-1">המדריך הזה נכתב במיוחד:</h2>
+
+      <div class="target-grid">
+        <div class="target-item reveal reveal-delay-1">
+          <div class="target-emoji">🎯</div>
+          <p class="target-text"><strong>לאימהות שחוו לידה קשה או מורכבת</strong>(בשנה האחרונה או לפני כן), ומרגישות שהחוויה עדיין &quot;יושבת עליהן&quot; ומונעת מהן ליהנות מהיומיום.</p>
+        </div>
+
+        <div class="target-item reveal reveal-delay-2">
+          <div class="target-emoji">🎯</div>
+          <p class="target-text"><strong>לנשים שמטפלות בתינוק במסירות,</strong> אבל מרגישות בפנים ריחוק, נתק רגשי או &quot;תפעול רובוטי&quot; שמלווה בייסורי מצפון קשים.</p>
+        </div>
+
+        <div class="target-item reveal reveal-delay-3">
+          <div class="target-emoji">🎯</div>
+          <p class="target-text"><strong>לאימהות שסובלות מ&quot;עוררות יתר&quot; (דריכות)</strong> – קופצות מכל רעש, בודקות את התינוק באובססיביות, ונמצאות בכוננות ספיגה תמידית בלי יכולת לנוח באמת.</p>
+        </div>
+
+        <div class="target-item reveal reveal-delay-4">
+          <div class="target-emoji">🎯</div>
+          <p class="target-text"><strong>למי שפוחדת אפילו לחשוב על הריון נוסף</strong> רק בגלל הזיכרון המשתק מחדר הלידה הקודם.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================
+       AUTHORITY SECTION — portrait top, certs grid
+       ========================================== -->
+  <section class="authority-section">
+    <div class="container">
+      <div class="authority-main reveal">
+        <!-- Portrait at top -->
+        <div class="authority-portrait-top">
+          <img src="images/maya-portrait.jpg" alt="ד״ר מאיה שפיגל">
+        </div>
+
+        <h2 class="authority-name">נעים מאוד, אני ד״ר מאיה שפיגל.</h2>
+        <p class="authority-title-line">פסיכולוגית קלינית | מומחית לטראומה | מרצה באקדמיה</p>
+
+        <div class="credentials">
+          <span class="credential-badge">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            18 שנות ניסיון
+          </span>
+          <span class="credential-badge">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            EMDR &amp; CBT
+          </span>
+          <span class="credential-badge">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            מאות מטופלות
+          </span>
+        </div>
+
+        <div class="authority-text-content">
+          <p class="authority-text">
+            ב-18 השנים האחרונות טיפלתי כפסיכולוגית קלינית במאות נשים שעברו לידות טראומטיות ומורכבות.
+          </p>
+
+          <p class="authority-text">
+            אני מומחית לטיפול בטראומה (EMDR ו-CBT) ומרצה באקדמיה, אבל אני לא מדברת איתך רק מהספרים או מהקליניקה הפרטית שלי.
+          </p>
+
+          <p class="authority-text">
+            פיתחתי את הגישה הזו מתוך הכאב האישי שלי, כאמא שעברה בעצמה לידות לא פשוטות ומורכבות. אני יודעת איך זה מרגיש להחזיק את כל הידע בראש, אבל להרגיש שהגוף עדיין לכוד בפחד.
+          </p>
+
+          <div class="authority-highlight">
+            <p>מה שאת חווה הוא לא &quot;חולשת אופי&quot;. הוא תגובה ביולוגית נורמלית לאירוע לא נורמלי.</p>
+          </div>
+
+          <div class="authority-reassurance">
+            <p>ויותר מזה — <strong>אפשר לטפל בזה בצורה מדויקת ומהירה משאת חושבת.</strong><br>
+            במדריך הקרוב אני הולכת לתת לך את ההסבר שחיפשת.</p>
+          </div>
+        </div>
+
+        <!-- 4 Certificates stacked -->
+        <div class="certificates-section">
+          <h3 class="certificates-section-title">הסמכות ותעודות מקצועיות</h3>
+          <div class="certificates-grid">
+            <!-- PhD Certificate (PDF embed) -->
+            <div class="cert-card">
+              <embed src="images/cert-phd.pdf" type="application/pdf" class="cert-card-pdf rotate-180">
+              <div class="cert-card-label">דוקטורט בפסיכולוגיה — אוניברסיטת בן גוריון</div>
+            </div>
+
+            <!-- Clinical Psychology Specialist -->
+            <div class="cert-card">
+              <img src="images/cert-clinical.jpg" alt="תעודת מומחיות בפסיכולוגיה קלינית">
+              <div class="cert-card-label">מומחית בפסיכולוגיה קלינית — משרד הבריאות</div>
+            </div>
+
+            <!-- EMDR Certificate -->
+            <div class="cert-card">
+              <img src="images/cert-emdr.jpg" alt="תעודת סיום EMDR">
+              <div class="cert-card-label">הסמכה מתקדמת ב-EMDR</div>
+            </div>
+
+            <!-- CBT Certificate -->
+            <div class="cert-card">
+              <img src="images/cert-cbt.jpg" alt="תעודת לימודי CBT">
+              <div class="cert-card-label">הכשרה בטיפול CBT — אוניברסיטת בר-אילן</div>
+            </div>
+
+            <!-- Grief & Loss Certificate (PDF embed) -->
+            <div class="cert-card">
+              <embed src="images/cert-grief.pdf" type="application/pdf" class="cert-card-pdf">
+              <div class="cert-card-label">מצבים פסיכולוגיים של אובדן ושכול — אוניברסיטת אריאל</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FINAL CTA SECTION
+       ========================================== -->
+  <section class="final-cta-section">
+    <div class="container">
+      <h2 class="section-title reveal">מוכנה לקרוא את המדריך?</h2>
+
+      <div class="form-container reveal reveal-delay-1">
+        <h3>קבלי את המדריך ישירות למייל</h3>
+        <script type='text/javascript' src='https://form2.ravpage.co.il/378f482857940bf56bd29fd5877dcb9d69DBB9E7' charset='UTF-8'></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FLOATING MOBILE CTA
+       ========================================== -->
+  <div class="floating-cta" id="floatingCta">
+    <button onclick="openModal()">
+      הורידי את המדריך בחינם &rsaquo;&rsaquo;
+    </button>
+  </div>
+
+  <!-- ==========================================
+       POPUP MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h3>קבלי את המדריך ישירות למייל</h3>
+      <script type='text/javascript' src='https://form2.ravpage.co.il/378f482857940bf56bd29fd5877dcb9d69DBB9E7' charset='UTF-8'></script>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       JAVASCRIPT
+       ========================================== -->
+  <script>
+    // ===== Scroll Reveal Animations =====
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    // ===== Floating CTA visibility =====
+    const floatingCta = document.getElementById('floatingCta');
+    const heroForm = document.getElementById('hero-form');
+
+    function checkFloatingCta() {
+      if (!heroForm) return;
+      const rect = heroForm.getBoundingClientRect();
+      if (rect.bottom < 0) {
+        floatingCta.classList.add('visible');
+      } else {
+        floatingCta.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', checkFloatingCta, { passive: true });
+
+    // ===== Modal =====
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target === e.currentTarget) {
+        closeModal();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+  </script>
+
+</body>
+</html>

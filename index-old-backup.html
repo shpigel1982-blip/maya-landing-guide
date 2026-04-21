@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ד״ר מאיה שפיגל | המדריך המלא לשחרור טראומת לידה</title>
+  <meta name="description" content="המדריך המלא שעזר למאות נשים להבין למה הן מרגישות מנותקות או בחרדה וחשף את הדרך המדעית לפתוח את הלב מחדש.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Calming Pastel Palette */
+      --sage-green: #8fac8f;
+      --sage-light: #b5ccb5;
+      --sage-ultra-light: #e8f0e8;
+      --sage-dark: #5a7a5a;
+
+      --rose-antique: #c4918a;
+      --rose-light: #e0b8b3;
+      --rose-ultra-light: #f5e6e3;
+      --rose-dark: #a06b64;
+      --rose-warm: #d4776d;
+
+      --blue-gray: #8fa3b0;
+      --blue-gray-light: #b8cad4;
+      --blue-gray-ultra-light: #e3edf2;
+
+      --cream: #faf8f5;
+      --cream-warm: #f7f3ee;
+      --white: #ffffff;
+      --text-dark: #2c3e2c;
+      --text-medium: #4a5d4a;
+      --text-light: #6b7d6b;
+      --text-on-dark: #f5f0eb;
+
+      --shadow-soft: 0 4px 20px rgba(90, 122, 90, 0.08);
+      --shadow-medium: 0 8px 30px rgba(90, 122, 90, 0.12);
+      --shadow-card: 0 2px 12px rgba(0,0,0,0.06);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Assistant', 'Heebo', Arial, sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================
+       ANIMATION KEYFRAMES
+       ============================================ */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% {
+        box-shadow: 0 4px 20px rgba(196, 145, 138, 0.3);
+      }
+      50% {
+        box-shadow: 0 4px 35px rgba(196, 145, 138, 0.5);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .animate-delay-1 { transition-delay: 0.1s; }
+    .animate-delay-2 { transition-delay: 0.2s; }
+    .animate-delay-3 { transition-delay: 0.3s; }
+    .animate-delay-4 { transition-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding: 80px 0;
+      }
+    }
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+    .hero {
+      background: linear-gradient(160deg, var(--sage-ultra-light) 0%, var(--cream) 40%, var(--rose-ultra-light) 100%);
+      padding: 40px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 20%, rgba(143, 172, 143, 0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(196, 145, 138, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-preheadline {
+      font-size: 1rem;
+      color: var(--sage-dark);
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    .hero-headline {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      line-height: 1.4;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-headline .highlight {
+      color: var(--rose-antique);
+    }
+
+    .hero-subheadline {
+      font-size: 1.125rem;
+      color: var(--text-medium);
+      line-height: 1.8;
+      margin-bottom: 12px;
+      animation: fadeInUp 0.8s ease-out 0.15s both;
+    }
+
+    .hero-subheadline strong {
+      color: var(--text-dark);
+    }
+
+    .hero-guide-description {
+      font-size: 1.0625rem;
+      color: var(--text-medium);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.6);
+      border-radius: var(--radius-md);
+      border-right: 3px solid var(--sage-light);
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 60px 0 80px;
+      }
+      .hero-headline {
+        font-size: 2.5rem;
+      }
+      .hero-subheadline {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* ============================================
+       FORM STYLES
+       ============================================ */
+    .form-container {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-medium);
+      border: 1px solid rgba(143, 172, 143, 0.15);
+      animation: fadeInUp 0.8s ease-out 0.45s both;
+    }
+
+    .form-container h3 {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-medium);
+      margin-bottom: 6px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid var(--sage-light);
+      border-radius: var(--radius-sm);
+      font-family: 'Assistant', sans-serif;
+      font-size: 1rem;
+      color: var(--text-dark);
+      background: var(--cream);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-light);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--sage-green);
+      box-shadow: 0 0 0 3px rgba(143, 172, 143, 0.15);
+      background: var(--white);
+    }
+
+    .cta-button {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, var(--rose-antique) 0%, var(--rose-warm) 100%);
+      color: white;
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.1875rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: gentlePulse 3s ease-in-out infinite;
+      text-align: center;
+      letter-spacing: 0.3px;
+      margin-top: 6px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(196, 145, 138, 0.4);
+    }
+
+    .cta-button:active {
+      transform: translateY(0);
+    }
+
+    .form-privacy {
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--text-light);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    .form-privacy svg {
+      width: 14px;
+      height: 14px;
+      vertical-align: middle;
+      margin-left: 4px;
+      fill: var(--sage-green);
+    }
+
+    /* ============================================
+       PAIN SECTION
+       ============================================ */
+    .pain-section {
+      background: var(--white);
+    }
+
+    .pain-section .section-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .pain-section .section-title .highlight {
+      color: var(--rose-antique);
+    }
+
+    .pain-intro {
+      font-size: 1.0625rem;
+      color: var(--text-medium);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .pain-item {
+      display: flex;
+      gap: 14px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--sage-ultra-light);
+      align-items: flex-start;
+    }
+
+    .pain-item:last-child {
+      border-bottom: none;
+    }
+
+    .pain-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--rose-ultra-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+    }
+
+    .pain-text {
+      font-size: 1rem;
+      color: var(--text-medium);
+      line-height: 1.7;
+    }
+
+    .pain-text strong {
+      color: var(--text-dark);
+    }
+
+    .pain-closing {
+      margin-top: 28px;
+      padding: 20px;
+      background: linear-gradient(135deg, var(--sage-ultra-light), var(--cream));
+      border-radius: var(--radius-md);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--sage-dark);
+      text-align: center;
+      border: 1px solid var(--sage-light);
+    }
+
+    @media (min-width: 768px) {
+      .pain-section .section-title {
+        font-size: 1.875rem;
+      }
+    }
+
+    /* ============================================
+       GUIDE CONTENT SECTION
+       ============================================ */
+    .guide-section {
+      background: linear-gradient(180deg, var(--cream) 0%, var(--sage-ultra-light) 50%, var(--cream) 100%);
+    }
+
+    .guide-section .section-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .guide-section .section-subtitle {
+      font-size: 1.0625rem;
+      color: var(--text-medium);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .guide-item {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 22px 20px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-card);
+      border-right: 4px solid var(--sage-green);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .guide-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .guide-item-icon {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .guide-item-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .guide-item-text {
+      font-size: 0.9375rem;
+      color: var(--text-medium);
+      line-height: 1.7;
+    }
+
+    .guide-cta-wrapper {
+      text-align: center;
+      margin-top: 36px;
+    }
+
+    .cta-button-secondary {
+      display: inline-block;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, var(--rose-antique) 0%, var(--rose-warm) 100%);
+      color: white;
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      animation: gentlePulse 3s ease-in-out infinite;
+    }
+
+    .cta-button-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(196, 145, 138, 0.4);
+    }
+
+    @media (min-width: 768px) {
+      .guide-section .section-title {
+        font-size: 1.875rem;
+      }
+    }
+
+    /* ============================================
+       TARGET AUDIENCE SECTION
+       ============================================ */
+    .target-section {
+      background: var(--white);
+    }
+
+    .target-section .section-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .target-item {
+      display: flex;
+      gap: 14px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--rose-ultra-light) 100%);
+      border-radius: var(--radius-md);
+      align-items: flex-start;
+      transition: transform 0.3s ease;
+    }
+
+    .target-item:hover {
+      transform: translateX(-4px);
+    }
+
+    .target-emoji {
+      flex-shrink: 0;
+      font-size: 1.375rem;
+      margin-top: 2px;
+    }
+
+    .target-text {
+      font-size: 1rem;
+      color: var(--text-medium);
+      line-height: 1.7;
+    }
+
+    .target-text strong {
+      color: var(--text-dark);
+    }
+
+    @media (min-width: 768px) {
+      .target-section .section-title {
+        font-size: 1.875rem;
+      }
+    }
+
+    /* ============================================
+       AUTHORITY / ABOUT SECTION
+       ============================================ */
+    .authority-section {
+      background: linear-gradient(160deg, var(--sage-ultra-light) 0%, var(--cream-warm) 50%, var(--rose-ultra-light) 100%);
+    }
+
+    .authority-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-medium);
+    }
+
+    .authority-image-wrapper {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, var(--sage-light), var(--blue-gray-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .authority-image-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to top, var(--white), transparent);
+    }
+
+    .authority-image-placeholder {
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .authority-image-placeholder .camera-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      display: block;
+      opacity: 0.8;
+    }
+
+    .authority-image-placeholder p {
+      font-size: 0.875rem;
+      opacity: 0.9;
+    }
+
+    .authority-content {
+      padding: 28px 24px 32px;
+    }
+
+    .authority-name {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .authority-title-line {
+      font-size: 0.9375rem;
+      color: var(--sage-dark);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .credential-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: var(--sage-ultra-light);
+      border-radius: 20px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--sage-dark);
+    }
+
+    .credential-badge svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--sage-green);
+    }
+
+    .authority-text {
+      font-size: 1rem;
+      color: var(--text-medium);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .authority-highlight {
+      background: var(--sage-ultra-light);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      margin-top: 20px;
+      border-right: 3px solid var(--sage-green);
+    }
+
+    .authority-highlight p {
+      font-size: 1rem;
+      color: var(--sage-dark);
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .authority-reassurance {
+      margin-top: 20px;
+      padding: 18px 20px;
+      background: var(--rose-ultra-light);
+      border-radius: var(--radius-md);
+      border-right: 3px solid var(--rose-light);
+    }
+
+    .authority-reassurance p {
+      font-size: 1rem;
+      color: var(--text-medium);
+      line-height: 1.8;
+    }
+
+    .authority-reassurance strong {
+      color: var(--text-dark);
+    }
+
+    @media (min-width: 768px) {
+      .authority-card {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+      .authority-image-wrapper {
+        width: 40%;
+        min-height: 100%;
+        height: auto;
+      }
+      .authority-content {
+        width: 60%;
+        padding: 36px 32px;
+      }
+    }
+
+    /* ============================================
+       FINAL CTA SECTION
+       ============================================ */
+    .final-cta-section {
+      background: linear-gradient(160deg, var(--sage-ultra-light) 0%, var(--cream) 30%, var(--rose-ultra-light) 100%);
+      text-align: center;
+      padding: 60px 0 80px;
+    }
+
+    .final-cta-section .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      animation: none;
+    }
+
+    .final-cta-section .section-title {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .final-cta-section .section-title {
+        font-size: 1.875rem;
+      }
+    }
+
+    /* ============================================
+       POPUP / MODAL
+       ============================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(44, 62, 44, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 36px 28px;
+      max-width: 440px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      animation: fadeInUp 0.4s ease-out;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: var(--cream);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.125rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover {
+      background: var(--sage-ultra-light);
+    }
+
+    .modal-content h3 {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ============================================
+       SUCCESS STATE
+       ============================================ */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 24px 20px;
+    }
+
+    .success-message.visible {
+      display: block;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--sage-ultra-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 2rem;
+      color: var(--sage-dark);
+    }
+
+    .success-message h3 {
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.25rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .success-message p {
+      color: var(--text-medium);
+      font-size: 1rem;
+    }
+
+    /* ============================================
+       DIVIDER
+       ============================================ */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--sage-light), transparent);
+      margin: 0 auto;
+      max-width: 200px;
+    }
+
+    /* ============================================
+       FLOATING MOBILE CTA
+       ============================================ */
+    .floating-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 20px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+      z-index: 900;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .floating-cta.visible {
+      transform: translateY(0);
+    }
+
+    .floating-cta button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--rose-antique) 0%, var(--rose-warm) 100%);
+      color: white;
+      font-family: 'Heebo', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    @media (max-width: 767px) {
+      .floating-cta {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       HERO SECTION
+       ========================================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-preheadline">לאימהות שמרגישות שהן עושות הכל &quot;לפי הספר&quot;, אבל הלב נשאר מכווץ ודרוך מאז חדר הלידה...</p>
+
+        <h1 class="hero-headline">
+          ד״ר מאיה שפיגל חושפת את<br>
+          <span class="highlight">הסודות מחדר הטיפולים:</span>
+        </h1>
+
+        <p class="hero-subheadline">
+          מה באמת קורה במוח שלך אחרי לידה מורכבת,<br>
+          למה <strong>&quot;לתת לזמן לעשות את שלו&quot;</strong> זו טעות,<br>
+          ואיך להשתחרר מהדריכות והאשמה ולחזור לעצמך.
+        </p>
+
+        <p class="hero-guide-description">
+          המדריך המלא שעזר למאות נשים להבין למה הן מרגישות מנותקות או בחרדה — וחשף את הדרך המדעית לפתוח את הלב מחדש.
+        </p>
+
+        <!-- Lead Capture Form -->
+        <div class="form-container" id="hero-form">
+          <h3>קבלי את המדריך ללא עלות</h3>
+          <form id="leadForm" onsubmit="handleSubmit(event, 'hero')">
+            <div class="form-group">
+              <label for="firstName">שם פרטי</label>
+              <input type="text" id="firstName" name="firstName" placeholder="השם שלך" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="email">אימייל</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" dir="ltr" style="text-align: right;">
+            </div>
+            <button type="submit" class="cta-button">
+              כן מאיה, שילחי לי את המדריך (ללא עלות) &rsaquo;&rsaquo;
+            </button>
+          </form>
+          <p class="form-privacy">
+            <svg viewBox="0 0 24 24"><path d="M12 1C8.676 1 6 3.676 6 7v2H4v14h16V9h-2V7c0-3.324-2.676-6-6-6zm0 2c2.276 0 4 1.724 4 4v2H8V7c0-2.276 1.724-4 4-4zm0 10c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+            המדריך יישלח אלייך למייל באופן מיידי ודיסקרטי
+          </p>
+
+          <div class="success-message" id="heroSuccess">
+            <div class="success-icon">&#10003;</div>
+            <h3>המדריך בדרך אלייך!</h3>
+            <p>בדקי את תיבת המייל שלך (גם בספאם) תוך דקות ספורות.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PAIN / PROBLEM SECTION
+       ========================================== -->
+  <section class="pain-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">
+        הכל נראה בסדר מבחוץ,<br>
+        אבל <span class="highlight">בפנים משהו חסום?</span>
+      </h2>
+
+      <p class="pain-intro animate-on-scroll animate-delay-1">את בטח מכירה את זה:</p>
+
+      <div class="pain-item animate-on-scroll animate-delay-1">
+        <div class="pain-icon">😰</div>
+        <p class="pain-text">התינוק בוכה, ובמקום אינסטינקט של הכלה, <strong>הגוף שלך נכנס לפאניקה ולדריכות.</strong></p>
+      </div>
+
+      <div class="pain-item animate-on-scroll animate-delay-2">
+        <div class="pain-icon">🌙</div>
+        <p class="pain-text">השעות עוברות ואת מותשת, אבל <strong>את לא מצליחה לישון</strong> בגלל מחשבות חוזרות, פלאשבקים ומתח שפשוט לא מרפה.</p>
+      </div>
+
+      <div class="pain-item animate-on-scroll animate-delay-3">
+        <div class="pain-icon">🚫</div>
+        <p class="pain-text">את מנסה בכל כוחך <strong>להימנע מדברים שמזכירים לך את הלידה</strong> – בתי חולים, נשים בהריון, או אפילו שיחות על הנושא.</p>
+      </div>
+
+      <div class="pain-item animate-on-scroll animate-delay-4">
+        <div class="pain-icon">💔</div>
+        <p class="pain-text">את מרגישה <strong>אשמה או בושה</strong> על זה שאת &quot;תפעולית וטכנית&quot; ולא מתמוגגת מהאימהות כמו שציפית.</p>
+      </div>
+
+      <div class="pain-closing animate-on-scroll">
+        אם הנהנת בראש — המדריך הזה נכתב בדיוק בשבילך.
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================
+       GUIDE CONTENT SECTION
+       ========================================== -->
+  <section class="guide-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">מה תגלי בתוך המדריך?</h2>
+      <p class="section-subtitle animate-on-scroll animate-delay-1">
+        בהדרכה קצרה, מדויקת ובגובה העיניים, אעשה לך סדר בבלאגן הרגשי ואחסוך לך חודשים של הלקאה עצמית.
+      </p>
+
+      <div class="guide-item animate-on-scroll animate-delay-1">
+        <span class="guide-item-icon">✅</span>
+        <h3 class="guide-item-title">הסטטיסטיקה המושתקת</h3>
+        <p class="guide-item-text">למה 50% מהנשים חוות את הלידה שלהן כטראומטית – ולמה את ממש לא &quot;המקרה המוזר&quot; למרות שאף אחד לא מכין אותנו לזה.</p>
+      </div>
+
+      <div class="guide-item animate-on-scroll animate-delay-2">
+        <span class="guide-item-icon">✅</span>
+        <h3 class="guide-item-title">מנגנון ההישרדות של המוח</h3>
+        <p class="guide-item-text">למה הזיכרון מהלידה &quot;מרגיש כמו עכשיו&quot;, ואיך זה שמבחינה ביולוגית המוח לא מאפשר לך להתאהב בתינוק כשאת במצב סכנה.</p>
+      </div>
+
+      <div class="guide-item animate-on-scroll animate-delay-3">
+        <span class="guide-item-icon">✅</span>
+        <h3 class="guide-item-title">4 הסימנים השקטים</h3>
+        <p class="guide-item-text">איך לדעת אם הלידה עדיין &quot;פועלת&quot; בגוף שלך ומפעילה אותך גם חודשים אחרי (אפילו אם הצוות הרפואי אמר ש&quot;הכל עבר רגיל&quot;).</p>
+      </div>
+
+      <div class="guide-item animate-on-scroll animate-delay-4">
+        <span class="guide-item-icon">✅</span>
+        <h3 class="guide-item-title">הפתרון המדעי והקליני</h3>
+        <p class="guide-item-text">מה קבע ארגון הבריאות העולמי (WHO) כטיפול היעיל ביותר לשחרור טראומת לידה (רמז: להגיד לעצמך &quot;תנשמי עמוק, העיקר שהתינוק בריא&quot; זה לא אחד מהם).</p>
+      </div>
+
+      <div class="guide-cta-wrapper animate-on-scroll">
+        <button class="cta-button-secondary" onclick="openModal()">
+          אני רוצה לקרוא את המדריך בחינם! &rsaquo;&rsaquo;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       TARGET AUDIENCE SECTION
+       ========================================== -->
+  <section class="target-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">המדריך הזה נכתב במיוחד:</h2>
+
+      <div class="target-item animate-on-scroll animate-delay-1">
+        <span class="target-emoji">🎯</span>
+        <p class="target-text"><strong>לאימהות שחוו לידה קשה או מורכבת</strong> (בשנה האחרונה או לפני כן), ומרגישות שהחוויה עדיין &quot;יושבת עליהן&quot; ומונעת מהן ליהנות מהיומיום.</p>
+      </div>
+
+      <div class="target-item animate-on-scroll animate-delay-2">
+        <span class="target-emoji">🎯</span>
+        <p class="target-text"><strong>לנשים שמטפלות בתינוק במסירות,</strong> אבל מרגישות בפנים ריחוק, נתק רגשי או &quot;תפעול רובוטי&quot; שמלווה בייסורי מצפון קשים.</p>
+      </div>
+
+      <div class="target-item animate-on-scroll animate-delay-3">
+        <span class="target-emoji">🎯</span>
+        <p class="target-text"><strong>לאימהות שסובלות מ&quot;עוררות יתר&quot; (דריכות)</strong> – קופצות מכל רעש, בודקות את התינוק באובססיביות, ונמצאות בכוננות ספיגה תמידית בלי יכולת לנוח באמת.</p>
+      </div>
+
+      <div class="target-item animate-on-scroll animate-delay-4">
+        <span class="target-emoji">🎯</span>
+        <p class="target-text"><strong>למי שפוחדת אפילו לחשוב על הריון נוסף</strong> רק בגלל הזיכרון המשתק מחדר הלידה הקודם.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ==========================================
+       AUTHORITY SECTION
+       ========================================== -->
+  <section class="authority-section">
+    <div class="container">
+      <div class="authority-card animate-on-scroll">
+        <div class="authority-image-wrapper">
+          <div class="authority-image-placeholder">
+            <span class="camera-icon">📷</span>
+            <p>תמונה של ד״ר מאיה שפיגל<br><small>החליפי את ה-placeholder בתמונה אישית</small></p>
+          </div>
+        </div>
+
+        <div class="authority-content">
+          <h2 class="authority-name">נעים מאוד, אני ד״ר מאיה שפיגל.</h2>
+          <p class="authority-title-line">פסיכולוגית קלינית | מומחית לטראומה | מרצה באקדמיה</p>
+
+          <div class="credentials">
+            <span class="credential-badge">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              18 שנות ניסיון
+            </span>
+            <span class="credential-badge">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              EMDR &amp; CBT
+            </span>
+            <span class="credential-badge">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              מאות מטופלות
+            </span>
+          </div>
+
+          <p class="authority-text">
+            ב-18 השנים האחרונות טיפלתי כפסיכולוגית קלינית במאות נשים שעברו לידות טראומטיות ומורכבות.
+          </p>
+
+          <p class="authority-text">
+            אני מומחית לטיפול בטראומה (EMDR ו-CBT) ומרצה באקדמיה, אבל אני לא מדברת איתך רק מהספרים או מהקליניקה הפרטית שלי.
+          </p>
+
+          <p class="authority-text">
+            פיתחתי את הגישה הזו מתוך הכאב האישי שלי, כאמא שעברה בעצמה לידות לא פשוטות ומורכבות. אני יודעת איך זה מרגיש להחזיק את כל הידע בראש, אבל להרגיש שהגוף עדיין לכוד בפחד.
+          </p>
+
+          <div class="authority-highlight">
+            <p>מה שאת חווה הוא לא &quot;חולשת אופי&quot;. הוא תגובה ביולוגית נורמלית לאירוע לא נורמלי.</p>
+          </div>
+
+          <div class="authority-reassurance">
+            <p>ויותר מזה — <strong>אפשר לטפל בזה בצורה מדויקת ומהירה משאת חושבת.</strong><br>
+            במדריך הקרוב אני הולכת לתת לך את ההסבר שחיפשת.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FINAL CTA SECTION
+       ========================================== -->
+  <section class="final-cta-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">מוכנה לקרוא את המדריך?</h2>
+
+      <div class="form-container animate-on-scroll animate-delay-1">
+        <form id="leadFormBottom" onsubmit="handleSubmit(event, 'bottom')">
+          <div class="form-group">
+            <label for="firstNameBottom">שם פרטי</label>
+            <input type="text" id="firstNameBottom" name="firstName" placeholder="השם שלך" required autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label for="emailBottom">אימייל</label>
+            <input type="email" id="emailBottom" name="email" placeholder="your@email.com" required autocomplete="email" dir="ltr" style="text-align: right;">
+          </div>
+          <button type="submit" class="cta-button">
+            לחצי כאן להורדת המדריך המלא (ללא עלות) &rsaquo;&rsaquo;
+          </button>
+        </form>
+        <p class="form-privacy">
+          <svg viewBox="0 0 24 24"><path d="M12 1C8.676 1 6 3.676 6 7v2H4v14h16V9h-2V7c0-3.324-2.676-6-6-6zm0 2c2.276 0 4 1.724 4 4v2H8V7c0-2.276 1.724-4 4-4zm0 10c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+          המדריך יישלח אלייך למייל באופן מיידי ודיסקרטי
+        </p>
+
+        <div class="success-message" id="bottomSuccess">
+          <div class="success-icon">&#10003;</div>
+          <h3>המדריך בדרך אלייך!</h3>
+          <p>בדקי את תיבת המייל שלך (גם בספאם) תוך דקות ספורות.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FLOATING MOBILE CTA
+       ========================================== -->
+  <div class="floating-cta" id="floatingCta">
+    <button onclick="openModal()">
+      הורידי את המדריך בחינם &rsaquo;&rsaquo;
+    </button>
+  </div>
+
+  <!-- ==========================================
+       POPUP MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h3>קבלי את המדריך ישירות למייל</h3>
+      <form id="leadFormModal" onsubmit="handleSubmit(event, 'modal')">
+        <div class="form-group">
+          <label for="firstNameModal">שם פרטי</label>
+          <input type="text" id="firstNameModal" name="firstName" placeholder="השם שלך" required autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <label for="emailModal">אימייל</label>
+          <input type="email" id="emailModal" name="email" placeholder="your@email.com" required autocomplete="email" dir="ltr" style="text-align: right;">
+        </div>
+        <button type="submit" class="cta-button" style="animation: none;">
+          שילחי לי את המדריך &rsaquo;&rsaquo;
+        </button>
+      </form>
+      <p class="form-privacy">
+        <svg viewBox="0 0 24 24"><path d="M12 1C8.676 1 6 3.676 6 7v2H4v14h16V9h-2V7c0-3.324-2.676-6-6-6zm0 2c2.276 0 4 1.724 4 4v2H8V7c0-2.276 1.724-4 4-4zm0 10c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+        המדריך יישלח אלייך למייל באופן מיידי ודיסקרטי
+      </p>
+
+      <div class="success-message" id="modalSuccess">
+        <div class="success-icon">&#10003;</div>
+        <h3>המדריך בדרך אלייך!</h3>
+        <p>בדקי את תיבת המייל שלך (גם בספאם) תוך דקות ספורות.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       JAVASCRIPT
+       ========================================== -->
+  <script>
+    // ===== Scroll Animations (Intersection Observer) =====
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // ===== Floating CTA visibility =====
+    const floatingCta = document.getElementById('floatingCta');
+    const heroForm = document.getElementById('hero-form');
+
+    function checkFloatingCta() {
+      if (!heroForm) return;
+      const rect = heroForm.getBoundingClientRect();
+      if (rect.bottom < 0) {
+        floatingCta.classList.add('visible');
+      } else {
+        floatingCta.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', checkFloatingCta, { passive: true });
+
+    // ===== Modal =====
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target === e.currentTarget) {
+        closeModal();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // ===== Form Handling =====
+    function handleSubmit(event, formLocation) {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form);
+      const firstName = formData.get('firstName');
+      const email = formData.get('email');
+
+      if (!firstName || !email) return;
+
+      console.log('Lead captured (' + formLocation + '):', { firstName, email });
+
+      // Hide form, show success
+      form.style.display = 'none';
+
+      var successId;
+      if (formLocation === 'hero') successId = 'heroSuccess';
+      else if (formLocation === 'bottom') successId = 'bottomSuccess';
+      else successId = 'modalSuccess';
+
+      document.getElementById(successId).classList.add('visible');
+
+      if (floatingCta) floatingCta.style.display = 'none';
+
+      // ============================================================
+      // TODO: Connect to your email service provider here.
+      //
+      // Option 1: Mailchimp
+      // fetch('https://YOUR_MAILCHIMP_URL', {
+      //   method: 'POST',
+      //   body: JSON.stringify({ email, firstName }),
+      // });
+      //
+      // Option 2: ConvertKit
+      // fetch('https://api.convertkit.com/v3/forms/FORM_ID/subscribe', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({
+      //     api_key: 'YOUR_API_KEY',
+      //     email: email,
+      //     first_name: firstName,
+      //   }),
+      // });
+      //
+      // Option 3: Custom webhook / Zapier
+      // fetch('https://hooks.zapier.com/hooks/catch/YOUR_HOOK', {
+      //   method: 'POST',
+      //   body: JSON.stringify({ email, firstName, source: formLocation }),
+      // });
+      // ============================================================
+    }
+  </script>
+
+</body>
+</html>
