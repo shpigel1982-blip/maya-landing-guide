@@ -5,6 +5,12 @@
   <base href="/guide/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ד״ר מאיה שפיגל | המדריך המלא לשחרור טראומת לידה</title>
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="images/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="images/favicon.ico">
   <meta name="description" content="המדריך המלא שעזר למאות נשים להבין למה הן מרגישות מנותקות או בחרדה וחשף את הדרך המדעית לפתוח את הלב מחדש.">
 
   <!-- Fonts -->
@@ -1006,6 +1012,19 @@
     @media (min-width: 640px) {
       .certificates-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .cert-card.featured {
+        grid-column: 1 / -1;
+        max-width: 55%;
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cert-card.featured {
+        max-width: 45%;
       }
     }
 
@@ -1023,10 +1042,34 @@
       border-color: var(--gold);
     }
 
-    .cert-card img {
+    .cert-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cert-card-img-wrapper {
       width: 100%;
-      height: auto;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: var(--white);
+      position: relative;
+    }
+
+    .cert-card-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
       display: block;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-touch-callout: none;
+      pointer-events: none;
+    }
+
+    .cert-card-img-wrapper.rotate-180 img {
+      transform: rotate(180deg);
     }
 
     .cert-card-label {
@@ -1037,24 +1080,7 @@
       text-align: center;
       background: var(--white);
       border-top: 1px solid rgba(200, 168, 125, 0.15);
-    }
-
-    .cert-card-pdf {
-      width: 100%;
-      height: 380px;
-      border: none;
-      display: block;
-      background: var(--white);
-    }
-
-    .cert-card-pdf.rotate-180 {
-      transform: rotate(180deg);
-    }
-
-    @media (min-width: 640px) {
-      .cert-card-pdf {
-        height: 450px;
-      }
+      margin-top: auto;
     }
 
     /* ============================================
@@ -1481,37 +1507,47 @@
           </div>
         </div>
 
-        <!-- 4 Certificates stacked -->
+        <!-- Certificates gallery -->
         <div class="certificates-section">
           <h3 class="certificates-section-title">הסמכות ותעודות מקצועיות</h3>
-          <div class="certificates-grid">
-            <!-- PhD Certificate (PDF embed) -->
-            <div class="cert-card">
-              <embed src="images/cert-phd.pdf" type="application/pdf" class="cert-card-pdf rotate-180">
+          <div class="certificates-grid" oncontextmenu="return false;">
+            <!-- PhD Certificate (featured, full width) -->
+            <div class="cert-card featured">
+              <div class="cert-card-img-wrapper">
+                <img src="images/cert-phd.png" alt="תעודת דוקטורט בפסיכולוגיה - אוניברסיטת בן גוריון" draggable="false">
+              </div>
               <div class="cert-card-label">דוקטורט בפסיכולוגיה — אוניברסיטת בן גוריון</div>
             </div>
 
             <!-- Clinical Psychology Specialist -->
             <div class="cert-card">
-              <img src="images/cert-clinical.jpg" alt="תעודת מומחיות בפסיכולוגיה קלינית">
+              <div class="cert-card-img-wrapper">
+                <img src="images/cert-clinical.jpg" alt="תעודת מומחיות בפסיכולוגיה קלינית" draggable="false">
+              </div>
               <div class="cert-card-label">מומחית בפסיכולוגיה קלינית — משרד הבריאות</div>
             </div>
 
             <!-- EMDR Certificate -->
             <div class="cert-card">
-              <img src="images/cert-emdr.jpg" alt="תעודת סיום EMDR">
+              <div class="cert-card-img-wrapper">
+                <img src="images/cert-emdr.jpg" alt="תעודת סיום EMDR" draggable="false">
+              </div>
               <div class="cert-card-label">הסמכה מתקדמת ב-EMDR</div>
             </div>
 
             <!-- CBT Certificate -->
             <div class="cert-card">
-              <img src="images/cert-cbt.jpg" alt="תעודת לימודי CBT">
+              <div class="cert-card-img-wrapper">
+                <img src="images/cert-cbt.jpg" alt="תעודת לימודי CBT" draggable="false">
+              </div>
               <div class="cert-card-label">הכשרה בטיפול CBT — אוניברסיטת בר-אילן</div>
             </div>
 
-            <!-- Grief & Loss Certificate (PDF embed) -->
+            <!-- Grief & Loss Certificate -->
             <div class="cert-card">
-              <embed src="images/cert-grief.pdf" type="application/pdf" class="cert-card-pdf">
+              <div class="cert-card-img-wrapper">
+                <img src="images/cert-grief.png" alt="תעודת מצבים פסיכולוגיים של אובדן ושכול - אוניברסיטת אריאל" draggable="false">
+              </div>
               <div class="cert-card-label">מצבים פסיכולוגיים של אובדן ושכול — אוניברסיטת אריאל</div>
             </div>
           </div>
